@@ -1,0 +1,15 @@
+int sp=A0;
+void setup(){
+serial.begin(9600);
+pinMode(sp,INPUT);
+}
+void loop(){
+int sensordata= analogRead(sp);
+serial.println(sensordata);
+if(sensordata>=1000){
+serial.println("No Moisture");
+}
+else if(sensordata<=600){
+serial.println("Soil is wet");
+}
+}
